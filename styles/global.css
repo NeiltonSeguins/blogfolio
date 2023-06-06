@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Poppins:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--primary);
+}
+
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+}
+
+@layer base {
+  :root {
+    /* Colors */
+    --primary: 40, 40, 40;
+    --secondary: 67, 186, 109;
+    --tertiary: 56, 68, 77;
+
+    /*BackgroundColor*/
+    --background: 40, 40, 40;
+
+    /*Text Color*/
+    --text-color-body: 136, 153, 166;
+    --text-color-heading: 255, 255, 255;
+  }
+}
