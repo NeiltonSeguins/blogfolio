@@ -24,6 +24,7 @@ async function getPublishedBlogPosts(): Promise<BlogPost[]> {
 function pageToPostTransformer(page: any): BlogPost {
   return {
     id: page.id,
+    cover: page.cover.external.url,
     title: page.properties.Name.title[0].plain_text,
     description: page.properties.Description.rich_text[0].plain_text,
     slug: page.properties.Slug.rich_text[0].plain_text,
