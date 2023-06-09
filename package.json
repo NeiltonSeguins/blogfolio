@@ -12,11 +12,12 @@
     "@notionhq/client": "^0.4.12",
     "dayjs": "^1.10.7",
     "next": "12.0.8",
-    "notion-to-md": "^2.1.0",
+    "notion-to-md": "^3.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.9.0",
-    "react-markdown": "^8.0.0"
+    "react-markdown": "^8.0.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.0",

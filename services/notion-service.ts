@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
-import { BlogPost } from "../types/schema";
-import { NotionToMarkdown } from "notion-to-md";
+import { BlogPost, PostPage } from "../types/schema";
+const { NotionToMarkdown } = require("notion-to-md");
 
 const notionClient = new Client({ auth: process.env.NOTION_ACCESS_TOKEN });
 const n2m = new NotionToMarkdown({ notionClient });
@@ -33,4 +33,34 @@ function pageToPostTransformer(page: any): BlogPost {
   };
 }
 
-export { getPublishedBlogPosts };
+async function getSingleBlogPost(slug: string): Promise<PostPage> {
+  let post;
+
+  const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
+  const response = await notionClient.databases.query({
+    database_id: database,
+    filter: {
+      property: "Slug",
+      rich_text: {
+        equals: slug,
+      },
+    },
+  });
+
+  if (!response.results[0]) {
+    throw new Error("Sem resultados");
+  }
+
+  const page = response.results[0];
+
+  const mdblocks = await n2m.pageToMarkdown(page.id);
+  const markdown = n2m.toMarkdownString(mdblocks);
+  post = pageToPostTransformer(page);
+
+  return {
+    post,
+    markdown: markdown.parent,
+  };
+}
+
+export { getPublishedBlogPosts, getSingleBlogPost };
