@@ -13,6 +13,7 @@ import {
   Profile,
   Sidebar,
   SocialNetwork,
+  CodeBlock,
 } from "../../components";
 
 const BlogPost = ({
@@ -41,11 +42,12 @@ const BlogPost = ({
       </p>
     ),
     ul: ({ children }: any) => (
-      <ul className="list-disc text-secondary text-lg font-poppins">{children}</ul>
+      <ul className="list-disc text-secondary text-lg font-poppins">
+        {children}
+      </ul>
     ),
-    li: ({ children }: any) => (
-      <li className=" my-4">{children}</li>
-    ),
+    li: ({ children }: any) => <li className=" my-4">{children}</li>,
+    code: ({ children }: any) => <CodeBlock codeString={children} />,
   };
 
   return (
