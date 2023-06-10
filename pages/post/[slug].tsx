@@ -2,6 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import React from "react";
 import Head from "next/head";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import gfm from "remark-gfm";
 import {
   getPublishedBlogPosts,
   getSingleBlogPost,
@@ -48,6 +49,11 @@ const BlogPost = ({
     ),
     li: ({ children }: any) => <li className=" my-4">{children}</li>,
     code: ({ children }: any) => <CodeBlock codeString={children} />,
+    blockquote: ({ children }: any) => (
+      <blockquote className="border-l-4 border-primary px-4 py-2 bg-[#282C34]">
+        {children}
+      </blockquote>
+    ),
   };
 
   return (
@@ -88,7 +94,11 @@ const BlogPost = ({
                 }}
               ></div>
               <div className="markdown-img:w-3/4 markdown-img:h-[450px] markdown-img:mx-auto markdown-img:rounded-lg">
-                <ReactMarkdown children={markdown} components={components} />
+                <ReactMarkdown
+                  children={markdown}
+                  components={components}
+                  remarkPlugins={[gfm]}
+                />
               </div>
             </article>
           </div>

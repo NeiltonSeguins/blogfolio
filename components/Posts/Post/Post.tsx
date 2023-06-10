@@ -11,7 +11,7 @@ export type PostProps = {
 const dateFormatter = (date: string) => {
   return new Intl.DateTimeFormat("pt-BR", {
     dateStyle: "medium",
-  }).format(Date.parse(date));
+  }).format(Date.parse(date.replace(/-/g, "/")));
 };
 
 const Post = ({ post }: PostProps) => {

@@ -5,7 +5,6 @@ import {
   Button,
   Footer,
   Menu,
-  Posts,
   Profile,
   Search,
   Sidebar,
