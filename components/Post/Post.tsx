@@ -1,4 +1,4 @@
-import { BlogPost } from "../../../types/schema";
+import { BlogPost } from "../../types/schema";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -20,7 +20,7 @@ const Post = ({ post }: PostProps) => {
     <li className="mt-4 mb-4 flex flex-col gap-4">
       <Link href={`/post/${post.slug}`}>
         <a className="flex items-center justify-between">
-          <div>
+          <div className="w-3/5">
             <div className="mt-4 mb-4 flex flex-col gap-4">
               <span className="font-firaCode text-left text-secondary text-sm">
                 {dataFormatada}
@@ -28,7 +28,7 @@ const Post = ({ post }: PostProps) => {
               <h2 className="font-poppins text-left text-primary text-3xl font-semibold hover:text-hover">
                 {post.title}
               </h2>
-              <p className="font-poppins text-left text-secondary text-base w-11/12">
+              <p className="font-poppins text-left text-secondary text-base w-11/12 text-justify">
                 {post.description}
               </p>
             </div>
@@ -46,6 +46,7 @@ const Post = ({ post }: PostProps) => {
 
                 return (
                   <span
+                    key={tag.id}
                     className={`p-2 mr-3 font-semibold font-firaCode ${
                       colorMap[tag.color]
                     } text-sm text-primary rounded-md text-center`}

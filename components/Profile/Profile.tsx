@@ -4,8 +4,8 @@ const Profile = () => {
   return (
     <>
       <Image
-        className="rounded-full"
-        src="/foto-perfil.jpg"
+        className="rounded-full bg-cover"
+        src="/profiler-pic.jpg"
         width={100}
         height={100}
         alt="Foto de perfil"

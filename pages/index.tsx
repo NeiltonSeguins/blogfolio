@@ -12,7 +12,7 @@ import {
 } from "../components";
 
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Post from "../components/Posts/Post/Post";
+import Post from "../components/Post/Post";
 import { BlogPost } from "@/types/schema";
 
 export const getStaticProps: GetStaticProps = async () => {

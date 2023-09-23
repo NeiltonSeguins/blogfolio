@@ -47,7 +47,12 @@ const BlogPost = ({
         {children}
       </ul>
     ),
-    li: ({ children }: any) => <li className=" my-4">{children}</li>,
+    ol: ({ children }: any) => (
+      <ol className="list-item text-secondary text-lg font-poppins">
+        {children}
+      </ol>
+    ),
+    li: ({ children }: any) => <li className=" my-4">- {children}</li>,
     code: ({ children }: any) => <CodeBlock codeString={children} />,
     blockquote: ({ children }: any) => (
       <blockquote className="border-l-4 border-primary px-4 py-2 bg-[#282C34]">
