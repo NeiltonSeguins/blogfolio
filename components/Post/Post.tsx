@@ -28,7 +28,7 @@ const Post = ({ post }: PostProps) => {
               <h2 className="font-poppins text-left text-primary text-3xl font-semibold hover:text-hover">
                 {post.title}
               </h2>
-              <p className="font-poppins text-left text-secondary text-base w-11/12 text-justify">
+              <p className="font-poppins text-secondary text-base w-11/12 text-justify">
                 {post.description}
               </p>
             </div>
